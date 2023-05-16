@@ -2,11 +2,36 @@
 <html>
   <head>
     <title>My Ticket Streamline Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Forum</title>
+    <script>
+      function submitForm() {
+        // Get the selected department
+        var departmentSelect = document.getElementById("department");
+        var selectedDepartment = departmentSelect.value;
+
+        // Get the user's message
+        var messageInput = document.getElementById("message");
+        var userMessage = messageInput.value;
+
+        // Print the selected department and message
+        console.log("Selected Department: " + selectedDepartment);
+        console.log("User Message: " + userMessage);
+
+        // Reset the form
+        departmentSelect.selectedIndex = 0;
+        messageInput.value = "";
+      }
+    </script>
   </head>
   <body>
     <header class="main-header">
-      <img src="company_logo.png" alt="Company Logo">
+      <div class="logo_div">
+        <img src="company_logo.png" alt="Company Logo">
+      </div>
       <nav class="main-nav">
         <ul>
           <li><a href="support.html">Support</a></li>
@@ -15,7 +40,35 @@
         </ul>
       </nav>
     </header>
-    <h1>Welcome to our Ticket Streamline Website!</h1>
-    <p>This is a website where you can easily find and purchase tickets to all your favorite events!</p>
+
+    
+    <div class="content">
+      <div class="forum">
+        <h1 class="topic__title">Submit your <strong>Ticket</strong>.</h1>
+        <p class="page-description">
+          From tech to tilt, we're here to help you!<br>
+          Submit a Ticket! So long as it doesn't fall through a portal, we'll get back to you soon.
+        </p>
+        <div class="form-accordion__title">
+          <span>Details</span>
+        </div>
+        <form class="ticket_form">
+          <label for="department">Department:</label>
+          <select id="department">
+            <option value="">Select Department</option>
+            <option value="Sales">Sales</option>
+            <option value="Support">Support</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Finance">Finance</option>
+          </select>
+          <br>
+          <label for="message">Message:</label>
+          <br>
+          <textarea id="message" rows="4" cols="50"></textarea>
+          <br>
+          <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
