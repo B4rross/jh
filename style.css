@@ -10,6 +10,11 @@
     align-items: center;
     justify-content: flex-start;
     padding: 10px;
+    z-index: 999;
+  }
+
+  div {
+    display: block;
   }
 
   :root, :host {
@@ -101,7 +106,7 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("113.jpg"); /* Replace with the path to your image */
+    background-image: url("114.jpg"); /* Replace with the path to your image */
     background-color: rgba(0, 0, 0, 0.9); /* Adjust the alpha value to control darkness */
   }
 
@@ -111,13 +116,19 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.3); /* Adjust the alpha value to control darkness */
     z-index: -1;
   }
 
+  .pre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .form-accordion__title {
-    width: 100%;
+    width: 70%;
     padding: 10px 0;
     margin-bottom: 17px;
     font-size: 10px;
@@ -151,11 +162,74 @@
   letter-spacing: 1.2px;
 }
 
+strong{
+  color: #f02825;
+}
+
 .ticket_form label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 5px;
   font-size: 10px;
   font-weight: 600;
   line-height: 26px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
+}
+
+
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 10px 0;
+  margin: 10px auto;
+  border-radius: 5px; 
+  border: none;
+  background: #f02825; 
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  }
+
+textarea{
+  resize: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 44.5%;
+  border: 1px solid #d2d2d2;
+  color: #808080;
+  background-color: white;
+  color: black;
+  padding: 12px 30px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+select{
+  position: relative;
+  width: 50%;
+    padding: 12px 30px;
+    height: 40px;
+    border: 1px solid #d2d2d2;
+    color: #808080;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background-size: 22px;
+}
+
+.test_area_container, .select_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -34,14 +34,14 @@
       </div>
       <nav class="main-nav">
         <ul>
-          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html">FAQ</a></li>
           <li><a href="submit_ticket.html">Submit a Ticket</a></li>
           <li><a href="my_tickets.html">My Tickets</a></li>
         </ul>
       </nav>
     </header>
 
-    
+
     <div class="content">
       <div class="forum">
         <h1 class="topic__title">Submit your <strong>Ticket</strong>.</h1>
@@ -49,25 +49,31 @@
           From tech to tilt, we're here to help you!<br>
           Submit a Ticket! So long as it doesn't fall through a portal, we'll get back to you soon.
         </p>
-        <div class="form-accordion__title">
-          <span>Details</span>
+        <div class= "pre">
+          <div class="form-accordion__title">
+            <span>Details</span>
+          </div>
         </div>
-        <form class="ticket_form">
-          <label for="department">Department:</label>
-          <select id="department">
-            <option value="">Select Department</option>
-            <option value="Sales">Sales</option>
-            <option value="Support">Support</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Finance">Finance</option>
-          </select>
-          <br>
-          <label for="message">Message:</label>
-          <br>
-          <textarea id="message" rows="4" cols="50"></textarea>
-          <br>
-          <button type="button" onclick="submitForm()">Submit</button>
-        </form>
+          <form class="ticket_form">
+            <label for="department">Department:</label>
+            <div class="select_container">
+              <select id="department">
+                <option value="">Select Department</option>
+                <option value="Sales">Sales</option>
+                <option value="Support">Support</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+              </select>
+            </div>
+            <br>
+            <label for="message">Message:</label>
+            <br>
+            <div class="test_area_container">
+              <textarea id="message" rows="4" cols="50"></textarea>
+            </div>
+            <br>
+            <button type="button" onclick="submitForm()">Submit</button>
+          </form>
       </div>
     </div>
   </body>
