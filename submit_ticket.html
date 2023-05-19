@@ -7,40 +7,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Forum</title>
+    <style>
+      /* CSS styling */
+      .select_container {
+        margin-bottom: 10px;
+      }
+
+      .hashtags-container {
+        margin-top: 10px;
+      }
+
+      .hashtags-container .hashtag {
+        display: inline-block;
+        background-color: #e5e5e5;
+        color: #333;
+        padding: 5px;
+        border-radius: 4px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+    </style>
     <script>
       function submitForm() {
         // Get the selected department
         var departmentSelect = document.getElementById("department");
         var selectedDepartment = departmentSelect.value;
+        var prioritySelect = document.getElementById("priority");
+        var selectedPriority = prioritySelect.value;
 
         // Get the user's message
         var messageInput = document.getElementById("message");
         var userMessage = messageInput.value;
 
-        // Print the selected department and message
+        // Get the selected hashtags
+        var selectedHashtags = [];
+        var hashtagsContainer = document.getElementById("hashtags-container");
+        var selectedHashtagsElements = hashtagsContainer.getElementsByClassName("hashtag");
+        for (var i = 0; i < selectedHashtagsElements.length; i++) {
+          var hashtag = selectedHashtagsElements[i].textContent;
+          selectedHashtags.push(hashtag);
+        }
+
+        // Print the selected department, priority, message, and hashtags
         console.log("Selected Department: " + selectedDepartment);
+        console.log("Selected Priority: " + selectedPriority);
         console.log("User Message: " + userMessage);
+        console.log("Selected Hashtags: " + selectedHashtags);
 
         // Reset the form
         departmentSelect.selectedIndex = 0;
+        prioritySelect.selectedIndex = 0;
         messageInput.value = "";
+        hashtagsContainer.innerHTML = "";
+      }
+
+      function addHashtag(hashtag) {
+        var hashtagsContainer = document.getElementById("hashtags-container");
+        var hashtagElement = document.createElement("div");
+        hashtagElement.textContent = hashtag;
+        hashtagElement.className = "hashtag";
+        hashtagElement.addEventListener("click", function () {
+          this.remove();
+        });
+        hashtagsContainer.appendChild(hashtagElement);
       }
     </script>
   </head>
   <body>
-    <header class="main-header">
-      <div class="logo_div">
-        <img src="company_logo.png" alt="Company Logo">
-      </div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="support.html">FAQ</a></li>
-          <li><a href="submit_ticket.html">Submit a Ticket</a></li>
-          <li><a href="my_tickets.html">My Tickets</a></li>
-        </ul>
-      </nav>
-    </header>
-
+    <!-- HTML code for header and other elements -->
+    <!-- ... -->
 
     <div class="content">
       <div class="forum">
@@ -49,31 +85,54 @@
           From tech to tilt, we're here to help you!<br>
           Submit a Ticket! So long as it doesn't fall through a portal, we'll get back to you soon.
         </p>
-        <div class= "pre">
+        <div class="pre">
           <div class="form-accordion__title">
             <span>Details</span>
           </div>
         </div>
-          <form class="ticket_form">
-            <label for="department">Department:</label>
+        <form class="ticket_form">
+          <label for="department">Department:</label>
+          <div class="select_container">
+            <select id="department">
+              <option value="">Select Department</option>
+              <option value="Sales">Sales</option>
+              <option value="Support">Support</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Finance">Finance</option>
+            </select>
+          </div>
+          <div class="select_container">
+            <select id="priority">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div class="select_container">
+            <label>Hashtags:</label>
+            <div id="hashtags-container" class="hashtags-container"></div>
             <div class="select_container">
-              <select id="department">
-                <option value="">Select Department</option>
-                <option value="Sales">Sales</option>
-                <option value="Support">Support</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Finance">Finance</option>
+              <select id="hashtag-select">
+                <option value="">Add Hashtag</option>
+                <option value="tickets">tickets</option>
+                <option value="science">science</option>
+                <option value="module">module</option>
+                <option value="biology">biology</option>
+                <option value="chemistry">chemistry</option>
               </select>
+              <button type="button" onclick="addHashtag(document.getElementById('hashtag-select').value)">Add</button>
             </div>
-            <br>
-            <label for="message">Message:</label>
-            <br>
-            <div class="test_area_container">
-              <textarea id="message" rows="4" cols="50"></textarea>
-            </div>
-            <br>
-            <button type="button" onclick="submitForm()">Submit</button>
-          </form>
+          </div>
+          <br>
+          <label for="message">Message:</label>
+          <br>
+          <div class="test_area_container">
+            <textarea id="message" rows="4" cols="50"></textarea>
+          </div>
+          <br>
+          <br>
+          <button type="button" onclick="submitForm()">Submit</button>
+        </form>
       </div>
     </div>
   </body>
