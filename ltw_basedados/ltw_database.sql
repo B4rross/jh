@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS Hashtags;
 DROP TABLE IF EXISTS Ticket_hashtag;
 DROP TABLE IF EXISTS Change_depart;
 DROP TABLE IF EXISTS Change_status;
+DROP TABLE IF EXISTS Change_roles;
 
 CREATE TABLE User (
     idUser INTEGER,
@@ -86,9 +87,17 @@ CREATE TABLE Change_depart (
 CREATE TABLE Change_status (
     idTicket INTEGER,
     idAgente INTEGER,
-    sttus TEXT NOT NULL,
+    sttus TEXT CHECK(sttus = 'new' OR sttus = 'queued' OR sttus = 'inProg' OR sttus = 'Pending' OR sttus = 'resolved' OR sttus = 'closed'),
     CONSTRAINT fk_bilhete FOREIGN KEY (idTicket) REFERENCES Ticket(idTicket) ON UPDATE CASCADE,
     CONSTRAINT fk_agentex1 FOREIGN KEY (idAgente) REFERENCES Agent(idAgent) ON UPDATE CASCADE
+);
+
+CREATE TABLE Change_roles(
+    idUser INTEGER,
+    idAdmin INTEGER,
+    roles TEXT CHECK (roles = 'client' OR roles = 'agent' OR roles = 'admin'),
+    CONSTRAINT fk_iduser3 FOREIGN KEY (idUser) REFERENCES User(idUser) ON UPDATE CASCADE,
+    CONSTRAINT fk_agentex5 FOREIGN KEY (idAdmin) REFERENCES Admine(idAdmin) ON UPDATE CASCADE
 );
 
 COMMIT TRANSACTION;
