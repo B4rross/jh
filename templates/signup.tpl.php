@@ -8,7 +8,7 @@
     <div class="frase">
         <p>Create your account!</p>
     </div>
-    <form action="../actions/action_register.php" method="post" class="login_register">
+    <form action="../actions/action_signup.php" method="post" class="login_register">
         <label>
             Username 
         </label>

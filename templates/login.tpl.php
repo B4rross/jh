@@ -5,9 +5,21 @@
 ?>
 
 <?php function drawLoginForm() { ?>
-  <form action="../actions/action_login.php" method="post" class="login">
-    <input type="email" name="email" placeholder="email">
-    <input type="password" name="password" placeholder="password">
-    <button type="submit">Login</button>
-  </form>
+  <div class="frase1">
+        <p>Login in your account!</p>
+    </div>
+    <form action="../actions/action_login.php" method="post" class="login_register">
+        <label>
+            Email 
+        </label>
+        <input type="email" name="email"><br></br>
+        <label>
+            Password 
+        </label>
+        <input type="password" name="password"><br></br>
+      </form>    
+      <div class="button">
+            <button formaction="#" formmethod="post">Login</button>
+            <p class="center">Don't have an account?<a href="login.php" class="done">Login</a></p>
+      </div>
 <?php } ?>

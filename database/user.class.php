@@ -4,15 +4,15 @@
   class User {
     public int $id;
     public string $email;
-    public string $name;
+    public string $nome;
     public string $username;
     public string $roles;
 
-    public function __construct(int $id, string $email, string $name, string $name, string $roles;)
+    public function __construct(int $id, string $nome, string $username, string $email, string $roles)
     { 
       $this->idUser = $id;
       $this->email = $email;
-      $this->name = $name;
+      $this->name = $nome;
       $this->username = $username;
       $this->roles = $roles;
     }
@@ -26,7 +26,7 @@
         $users[] = new User(
           intval($user['idUser']),
           htmlentities($user['email']),
-          htmlentities($user['name']),
+          htmlentities($user['nome']),
           htmlentities($user['username']),
           htmlentities($user['roles'])
         );
@@ -47,7 +47,7 @@
         return new User(
           intval($user['idUser']),
           htmlentities($user['email']),
-          htmlentities($user['name']),
+          htmlentities($user['nome']),
           htmlentities($user['username']),
           htmlentities($user['roles'])
         );
@@ -63,7 +63,7 @@
         return new User(
             intval($user['idUser']),
             htmlentities($user['email']),
-            htmlentities($user['name']),
+            htmlentities($user['nome']),
             htmlentities($user['username']),
             htmlentities($user['roles'])
         );

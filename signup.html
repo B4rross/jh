@@ -9,21 +9,25 @@
     <title>Forum</title>
     <script>
       function submitForm() {
-        // Get the selected department
-        var departmentSelect = document.getElementById("department");
-        var selectedDepartment = departmentSelect.value;
+
+        var nameSelect = document.getElementById("nome");
+        var selectedName = nameSelect.value;
+        
+        var emailSelect = document.getElementById("email");
+        var selectedEmail = emailSelect.value;
+
+        var usernameSelect = document.getElementById("username");
+        var selectedUsername = usernameSelect.value;
 
         // Get the user's message
-        var messageInput = document.getElementById("message");
-        var userMessage = messageInput.value;
+        var passwordSelect = document.getElementById("password");
+        var selectedPassword = passwordSelect.value;
 
         // Print the selected department and message
-        console.log("Selected Department: " + selectedDepartment);
-        console.log("User Message: " + userMessage);
-
-        // Reset the form
-        departmentSelect.selectedIndex = 0;
-        messageInput.value = "";
+        console.log("Select Name: " + selectedName);
+        console.log("Select Email: " + selectedEmail);
+        console.log("Select Username: " + selectedUsername);
+        console.log("Password: " + selectedPassword);
       }
     </script>
   </head>
@@ -36,13 +40,22 @@
         <li><a href="support.html">FAQ</a></li>
         <li><a href="submit_ticket.html">Submit a Ticket</a></li>
         <li><a href="my_tickets.html">My Tickets</a></li>
+        <li><a href="login.html">Login</a></li>
       </ul>
     </nav>
   </header>
   <body>
     <div class="content">
       <h2>Sign-up</h2>
-      <form action="signup.php" method="POST">
+      <form action="submit_ticket.html" method="POST" onsubmit="submitForm()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email2" name="email" required>
+        </div>
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required>
@@ -51,7 +64,7 @@
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Sign-Up</button>
       </form>
     </div>
   </body>
