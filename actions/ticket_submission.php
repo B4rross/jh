@@ -9,5 +9,19 @@
 
     $db = getDatabaseConnection();
 
-    $ticket = Ticket::createTicket($db, $_POST('title'), $_POST('description'), $_POST('department'));
+    require_once(__DIR__ . '/../database/ticket.class.php');
+
+    $creator_id = $session->getId();
+
+    $ticket = Ticket::createTicket($db, $creator_id, $_POST['title'], $_POST['description'], $_POST['department']);
+
+    if ($ticket) {
+        $session->addMessage('sucess', 'Ticket submitted!');
+    }
+    else {
+        $session->addMessage('error', "Not able to submit the ticket.");
+    }
+
+    header('Location: ../pages/editProfile.php');
+    exit();
 ?>
