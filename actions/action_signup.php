@@ -1,39 +1,29 @@
 <?php
+    declare (strict_types = 1);
+    
+    require_once(__DIR__ .'/../database/session.class.php');
 
-declare(strict_types=1);
+    $session = new Session();
 
-require_once(__DIR__ . '/../utils/session.php');
-$session = new Session();
+    require_once(__DIR__ .'/../database/connection.db.php');
 
-require_once(__DIR__ . '/../database/connection.db.php');
-require_once(__DIR__ . '/../database/user.class.php');
+    $db = getDatabaseConnection();
 
-$db = getDatabaseConnection();
 
-$username=$_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+    $stmt = $db->prepare('INSERT INTO User (Password, Name, Email) VALUES (?, ?, ?)');
+    try {
+        $stmt->execute(array(password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['name'], $_POST['email']));
+    } catch (PDOException $e) {
+        $session->addMessage('error','Email already exists');
+        die(header('Location: /../pages/signup.php'));
+    }
+    
+    $stmt1 = $db->prepare('SELECT idUser FROM USER WHERE Email = ?');
+    $email = strval($_POST['email']);
+    $stmt1->execute(array($email));
 
-// Check if the username or email is already taken
-if (User::usernameExists($db, $username)) {
-    // $session->addMessage('error', 'Username already taken.');
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    exit();
-}
-
-if (User::emailExists($db, $email)) {
-    // $session->addMessage('error', 'Email already registered.');
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    exit();
-}
-$user = User::createUser($db, $username, $email, $password);
-
-if ($user) {
-    // $session->setId($user->id);
-    // $session->setName($user->name);
-    // $session->addMessage('success', 'Registration successful!');
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-} else {
-    // $session->addMessage('error', 'Failed to register user.');
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-}
+    if($user = $stmt1->fetch()){
+       $session->setId(intval($user['idUser']));
+    }
+    header('Location: ../../index.php'); 
+?>
