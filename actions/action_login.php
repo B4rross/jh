@@ -1,26 +1,26 @@
 <?php
-
     declare(strict_types = 1);
 
-    require_once(__DIR__ . '/../utils/session.php');
+    require_once(__DIR__ .'/../database/session.class.php');
+
     $session = new Session();
 
-    require_once(__DIR__ . '/../database/connection.db.php');
-    require_once(__DIR__ . '/../database/user.class.php');
-
+    require_once(__DIR__ .'/../database/connection.db.php');
+    require_once(__DIR__ .'/../database/user.class.php');
+    
     $db = getDatabaseConnection();
+    
+    $user = User::getUserEmailPassword($db, $_POST['email'], $_POST['password']);
 
-    $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
-
-    if ($user) {
+    if($user != null){
         $session->setId($user->id);
-        $session->setName(($user->name));
-        // $session->addMessage('sucess', 'Login successful!');
-    }
-    else {
-        // $session->addMessage('error', 'Wrong credentials.');
+        $session->setName($user->name);
+        header('Location: ../index.php');
+        $session->addMessage('sucess', 'Login successful!');
+    }else{
+        $session->addMessage('error','Email or password incorrect');
+        die(header('Location: ../../index.php'));
     }
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-
+    header('Location: ../../index.php');
 ?>
