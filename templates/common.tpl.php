@@ -27,6 +27,7 @@
     <form action = "../actions/action_signup.php" method = "post" id = "register">
         <h1>Signup</h1>
         <input type = "text" placeholder = "Enter name" id = "nameReg" name = "name" required>
+        <input type = "text" placeholder = "Enter username" id = "nameReg" name = "username" required>
         <input type = "email" placeholder = "Enter email" id = "emailReg" name = "email" required>
         <input type = "password" placeholder = "Enter password" id = "passReg" name = "password" required>
         <button type = "submit" id= regButton name = "register">Signup</button>
