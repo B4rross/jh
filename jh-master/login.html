@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Ticket Streamline Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Forum</title>
+    <script>
+      function submitForm() {
+        // Get the selected department
+        var departmentSelect = document.getElementById("department");
+        var selectedDepartment = departmentSelect.value;
+
+        // Get the user's message
+        var messageInput = document.getElementById("message");
+        var userMessage = messageInput.value;
+
+        // Print the selected department and message
+        console.log("Selected Department: " + selectedDepartment);
+        console.log("User Message: " + userMessage);
+
+        // Reset the form
+        departmentSelect.selectedIndex = 0;
+        messageInput.value = "";
+      }
+    </script>
+  </head>
+  <header class="main-header">
+    <div class="logo_div">
+      <img src="company_logo.png" alt="Company Logo">
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="support.html">FAQ</a></li>
+        <li><a href="submit_ticket.html">Submit a Ticket</a></li>
+        <li><a href="my_tickets.html">My Tickets</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <div class="content">
+      <h2>Login</h2>
+      <form action="login.php" method="POST">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Ticket Streamline Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Forum</title>
+    <script>
+      function submitForm() {
+
+        var nameSelect = document.getElementById("name1");
+        var selectedName = nameSelect.value;
+        
+        var emailSelect = document.getElementById("email1");
+        var selectedEmail = emailSelect.value;
+
+        var usernameSelect = document.getElementById("username1");
+        var selectedUsername = usernameSelect.value;
+
+        // Get the user's message
+        var passwordSelect = document.getElementById("password1");
+        var selectedPassword = passwordSelect.value;
+
+        // Print the selected department and message
+        console.log("Select Name: " + selectedName);
+        console.log("Select Email: " + selectedEmail);
+        console.log("Select Username: " + selectedUsername);
+        console.log("Password: " + selectedPassword);
+      }
+    </script>
+  </head>
+  <header class="main-header">
+    <div class="logo_div">
+      <img src="company_logo.png" alt="Company Logo">
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="support.html">FAQ</a></li>
+        <li><a href="submit_ticket.html">Submit a Ticket</a></li>
+        <li><a href="my_tickets.html">My Tickets</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <div class="content">
+      <h2>Sign-up</h2>
+      <form action="signup.php" method="POST" onsubmit="submitForm()">
+        <div class="form-group">
+          <label for="name2">Name</label>
+          <input type="text" id="name2" name="name2" required>
+        </div>
+        <div class="form-group">
+          <label for="email2">Email</label>
+          <input type="email" id="email2" name="email2" required>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Sign-Up</button>
+      </form>
+    </div>
+  </body>
+</html>

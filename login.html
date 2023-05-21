@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Ticket Streamline Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Forum</title>
+    <script>
+      function submitForm() {
+        // Get the selected department
+        var usernameSelect = document.getElementById("username1");
+        var selectedUsername = usernameSelect.value;
+
+        // Get the user's message
+        var passwordSelect = document.getElementById("password1");
+        var selectedPassword = passwordSelect.value;
+
+        // Print the selected department and message
+        console.log("Select Username: " + selectedUsername);
+        console.log("Password: " + selectedPassword);
+
+        // Reset the form
+        usernameSelect.selectedIndex = 0;
+        messageInput.value = "";
+      }
+    </script>
+  </head>
+  <header class="main-header">
+    <div class="logo_div">
+      <img src="company_logo.png" alt="Company Logo">
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="support.html">FAQ</a></li>
+        <li><a href="submit_ticket.html">Submit a Ticket</a></li>
+        <li><a href="my_tickets.html">My Tickets</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <div class="content">
+      <h2>Login</h2>
+      <form action="login.php" method="POST">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
