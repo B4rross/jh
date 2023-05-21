@@ -44,7 +44,7 @@
   }
 
   .logo_div img {
-    height: 35px;
+    height: 120px;
   }
   
   .main-nav {
@@ -67,7 +67,7 @@
   
   .main-nav li {
     margin-left: 20px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent; /* Add a transparent border */
     transition: border-color 0.3s ease;
   }
 
@@ -90,8 +90,8 @@
   }
   
   .content {
-    margin-top: 80px; 
-    max-width: 75%; 
+    margin-top: 60px; /* Adjust the value as needed */
+    max-width: 75%; /* Adust the maximum width as desired */
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -106,8 +106,8 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("114.jpg"); 
-    background-color: rgba(0, 0, 0, 0.9);
+    background-image: url("114.jpg"); /* Replace with the path to your image */
+    background-color: rgba(0, 0, 0, 0.9); /* Adjust the alpha value to control darkness */
   }
 
   body::before {
@@ -117,7 +117,7 @@
     left: 0;
     width: 100%;
     height: auto;
-    background-color: rgba(0, 0, 0, 0.3); 
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust the alpha value to control darkness */
     z-index: -1;
   }
 
