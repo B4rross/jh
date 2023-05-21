@@ -12,7 +12,7 @@
 
     $stmt = $db->prepare('INSERT INTO User (Password, Name, Email) VALUES (?, ?, ?)');
     try {
-        $stmt->execute(array(password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['name'], $_POST['email']));
+        $stmt->execute(array($_POST['nome'], $_POST['username'], $_POST['email'], password_hash($_POST['pass'],PASSWORD_DEFAULT), $roles));
     } catch (PDOException $e) {
         $session->addMessage('error','Email already exists');
         die(header('Location: /../pages/signup.php'));

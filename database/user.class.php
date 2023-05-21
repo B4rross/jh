@@ -6,13 +6,15 @@
     public string $email;
     public string $name;
     public string $username;
+    public string $roles;
 
-    public function __construct(int $id, string $email, string $name, string $name;)
+    public function __construct(int $id, string $email, string $name, string $name, string $roles;)
     { 
       $this->idUser = $id;
       $this->email = $email;
       $this->name = $name;
       $this->username = $username;
+      $this->roles = $roles;
     }
 
     static function getUsers(PDO $db) : array {
@@ -25,7 +27,8 @@
           intval($user['idUser']),
           htmlentities($user['email']),
           htmlentities($user['name']),
-          htmlentities($user['username'])
+          htmlentities($user['username']),
+          htmlentities($user['roles'])
         );
       }
   
@@ -45,7 +48,8 @@
           intval($user['idUser']),
           htmlentities($user['email']),
           htmlentities($user['name']),
-          htmlentities($user['username'])
+          htmlentities($user['username']),
+          htmlentities($user['roles'])
         );
       }else return null;
     }
@@ -60,7 +64,8 @@
             intval($user['idUser']),
             htmlentities($user['email']),
             htmlentities($user['name']),
-            htmlentities($user['username'])
+            htmlentities($user['username']),
+            htmlentities($user['roles'])
         );
       }else return null;
     }
